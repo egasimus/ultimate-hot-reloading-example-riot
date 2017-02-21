@@ -1,10 +1,12 @@
-# Ultimate Hot Reloading Example
+# H3
 
-👉👉👉👉 This project is intended as an *example* of how to fit an application together, the idea is that you read the code and understand how it works - then apply the same approach in your own projects. 👈👈👈👈
+Hot! Hot! Hot! Hot module reload testbed for:
 
-This is **NOT** intended as a boilerplate or a starter kit, I don't recommend using it as a base for a project unless you're happy that you know how stuff fits together.
+- React
+- Redux
+- Express
 
-## Goals
+## Checksmarks!
 
   * Only one running node process ✅
   * Client-side Redux reducer hot reloading ✅
@@ -17,19 +19,14 @@ This is **NOT** intended as a boilerplate or a starter kit, I don't recommend us
   * Data fetching through a remote API
   * Multiple pages via Routing
 
-## Installing
+## Install
 
-Once cloned locally, run `npm install`. To start the server run `npm start` and visit `http://localhost:3000/` in your browser.
+```
+yarn
+```
 
-## Try it out
+## Run
 
-  * Change initial in `reducers/index.js` and hit refresh to see server redux reload
-  * Change INC amount in `reducers/index.js` to and hit the button to see client redux reload
-  * Change component in `components/App.js` to see client/server react reload
-  * Change the responses in `server/app.js` to see the express routes reload
-  * Change the CSS in `client/common/layout.css` to see imported CSS reload
-  * Change the CSS in `client/components/App.css` to see the imported CSS reload
-
-## Demo
-
-![ultimate-reload-css](https://cloud.githubusercontent.com/assets/133832/10411396/56e276ea-6f64-11e5-8d71-d7006a32c38e.gif)
+```
+yarn start
+```
