@@ -1,3 +1,6 @@
+// Fake require to trigger reload
+require('../index.html');
+
 /* eslint-env browser */
 
 import App from './components/App';

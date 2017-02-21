@@ -16,12 +16,12 @@ export default {
     publicPath: '/'
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['.js'],
     alias: {
       request: 'browser-request'
     }
@@ -31,7 +31,7 @@ export default {
       // Javascript
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         include: path.join(__dirname, 'client'),
         query: {
           "env": {
@@ -60,6 +60,12 @@ export default {
           importLoaders: 1,
           localIdentName: '[path][name]-[local]'
         })
+      },
+
+      // HTML
+      {
+        test: /\.html$/,
+        loader: "raw-loader"
       }
 
     ]
