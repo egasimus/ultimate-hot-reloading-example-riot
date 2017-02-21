@@ -6,7 +6,7 @@ Hot! Hot! Hot! Hot module reload testbed for:
 - Redux
 - Express
 
-## Checksmarks!
+## Checkmarks!
 
   * Only one running node process ✅
   * Client-side Redux reducer hot reloading ✅
