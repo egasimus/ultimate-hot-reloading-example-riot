@@ -27,47 +27,49 @@ export default {
     }
   },
   module: {
-    loaders: [
-      // Javascript
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: path.join(__dirname, 'client'),
-        query: {
-          "env": {
-            "development": {
-              "presets": ["react-hmre"],
-              "plugins": [
-                ["react-transform", {
-                  "transforms": [{
-                    "transform": "react-transform-hmr",
-                    "imports": ["react"],
-                    "locals": ["module"]
-                  }]
-                }]
-              ]
-            }
-          },
-        }
-      },
-
-      // CSS
-      {
-        test: /\.css$/,
-        include: path.join(__dirname, 'client'),
-        loader: 'style-loader!css-loader?' + qs.stringify({
-          modules: true,
-          importLoaders: 1,
-          localIdentName: '[path][name]-[local]'
-        })
-      },
-
-      // HTML
+    rules: [
       {
         test: /\.html$/,
         loader: "raw-loader"
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              context: __dirname,
+              modules: true,
+              importLoaders: 1,
+              localIdentName: '[path][name]-[local]'
+            }
+          },
+        ],
+      },
+      {
+        test: /\.js$/,
+        include: path.join(__dirname, 'client'),
+        use: [{
+          loader: 'babel-loader',
+          query: {
+            "env": {
+              "development": {
+                "presets": ["react-hmre"],
+                "plugins": [
+                  ["react-transform", {
+                    "transforms": [{
+                      "transform": "react-transform-hmr",
+                      "imports": ["react"],
+                      "locals": ["module"]
+                    }]
+                  }]
+                ]
+              }
+            }
+          }
+        }]
       }
-
     ]
   }
 };
