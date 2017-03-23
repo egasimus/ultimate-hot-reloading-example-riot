@@ -1,20 +1,14 @@
 // Fake require to trigger reload
-require('../index.html');
-
+require('../index.html')
 /* eslint-env browser */
 
-import App from './components/App';
-import configureStore from './store';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
+const riot = require('riot')
+const store = require('./configureStore')(window.initialStoreData)
+if (module.hot) module.hot.accept('./components/App', init);
+init();
 
-const store = configureStore(window.initialStoreData);
-window.dev = {store};
-
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+function init () {
+  return riot.mount('app', require('./components/App'),
+    { store
+    , browser: true
+    , server:  window.__INITIAL_STATE__} ) }
