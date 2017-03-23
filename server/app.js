@@ -1,9 +1,5 @@
-import express from 'express';
-
-const app = express.Router();
+const app = module.exports = require('express').Router();
 
 app.get('/whoami', (req, res) => {
-  res.send("You are a winner");
+  res.send("You are a winner!");
 });
-
-module.exports = app;
